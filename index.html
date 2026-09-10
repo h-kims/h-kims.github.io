@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>烟雨江南论坛-江南文化兴趣交流与同城话题社区</title>
+<meta name="description" content="烟雨江南论坛是一个围绕江南文化、生活方式、旅行见闻与同城话题的交流社区，提供版块导航、热门话题、新人指南与常见问题，方便你快速融入讨论。">
+<meta name="keywords" content="烟雨江南论坛,江南文化社区,江南旅行交流,同城话题,兴趣论坛">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --ink:#1f2a2e;
+  --ink-soft:#3c4a4f;
+  --mist:#eef3f2;
+  --mist-deep:#dde7e5;
+  --jade:#2f6f63;
+  --jade-deep:#1f4f47;
+  --water:#4a7f96;
+  --paper:#fbfaf6;
+  --line:#cfdcd9;
+  --accent:#b06a3b;
+  --radius:10px;
+  --shadow:0 2px 12px rgba(31,42,46,.08);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:var(--jade-deep);text-decoration:none;}
+a:hover{color:var(--accent);}
+img{max-width:100%;}
+h1,h2,h3{line-height:1.35;margin:0 0 .6em;font-weight:700;}
+h1{font-size:1.9rem;}
+h2{font-size:1.4rem;}
+h3{font-size:1.08rem;}
+p{margin:0 0 1em;}
+ul{margin:0 0 1em;padding-left:1.2em;}
+li{margin-bottom:.4em;}
+
+/* 顶部 */
+.site-header{
+  background:linear-gradient(160deg,#22463f 0%,#2f6f63 55%,#3f7f8e 100%);
+  color:#f2f7f6;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:60px;
+  background:radial-gradient(ellipse at 20% 100%,rgba(255,255,255,.14),transparent 60%),
+             radial-gradient(ellipse at 70% 100%,rgba(255,255,255,.10),transparent 55%);
+  pointer-events:none;
+}
+.header-inner{
+  max-width:1140px;
+  margin:0 auto;
+  padding:18px 20px 26px;
+  position:relative;
+  z-index:2;
+}
+.topbar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand-mark{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#e9f3f1,#8fb9b0);
+  color:var(--jade-deep);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:1rem;
+  letter-spacing:1px;
+  flex:0 0 auto;
+}
+.brand-name{
+  font-size:1.18rem;
+  font-weight:700;
+  letter-spacing:2px;
+}
+.brand-sub{
+  font-size:.78rem;
+  opacity:.8;
+  letter-spacing:1px;
+}
+.topbar-links{
+  display:flex;
+  gap:18px;
+  font-size:.88rem;
+  flex-wrap:wrap;
+}
+.topbar-links a{color:#e5f1ee;opacity:.9;}
+.topbar-links a:hover{color:#fff;opacity:1;}
+
+/* 导航 */
+.main-nav{
+  margin-top:16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 6px;
+}
+.main-nav a{
+  color:#eef6f4;
+  font-size:.9rem;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+  transition:.2s;
+}
+.main-nav a:hover{
+  background:rgba(255,255,255,.22);
+  color:#fff;
+}
+
+/* 首屏 */
+.hero{
+  max-width:1140px;
+  margin:0 auto;
+  padding:30px 20px 34px;
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:28px;
+  align-items:start;
+  position:relative;
+  z-index:2;
+}
+.hero-main h1{
+  color:#fff;
+  font-size:2rem;
+  letter-spacing:1px;
+  margin-bottom:.4em;
+}
+.hero-main .hero-lead{
+  color:#dcebe8;
+  font-size:1rem;
+  max-width:52ch;
+}
+.hero-tags{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;
+}
+.hero-tags span{
+  font-size:.8rem;
+  padding:4px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.14);
+  color:#eaf4f2;
+}
+.hero-side{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  color:#eaf4f2;
+  backdrop-filter:blur(2px);
+}
+.hero-side h3{
+  color:#fff;
+  font-size:1rem;
+  margin-bottom:.5em;
+}
+.hero-side ol{
+  margin:0;padding-left:1.2em;font-size:.9rem;
+}
+.hero-side li{margin-bottom:.35em;}
+
+/* 主体布局 */
+main{
+  max-width:1140px;
+  margin:0 auto;
+  padding:34px 20px 10px;
+}
+.section{
+  margin-bottom:44px;
+}
+.section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  border-bottom:2px solid var(--mist-deep);
+  padding-bottom:10px;
+  margin-bottom:20px;
+}
+.section-head h2{
+  margin:0;
+  color:var(--jade-deep);
+  position:relative;
+  padding-left:14px;
+}
+.section-head h2::before{
+  content:"";
+  position:absolute;
+  left:0;top:.18em;
+  width:5px;height:1.05em;
+  border-radius:3px;
+  background:var(--accent);
+}
+.section-head .head-note{
+  font-size:.85rem;
+  color:var(--ink-soft);
+}
+
+/* 版块网格 */
+.board-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:16px;
+}
+.board-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px 18px 16px;
+  box-shadow:var(--shadow);
+  transition:transform .18s,box-shadow .18s;
+  display:flex;
+  flex-direction:column;
+}
+.board-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(31,42,46,.12);
+}
+.board-card h3{
+  margin-bottom:.35em;
+  color:var(--jade-deep);
+}
+.board-card p{
+  font-size:.9rem;
+  color:var(--ink-soft);
+  flex:1;
+  margin-bottom:.7em;
+}
+.board-meta{
+  font-size:.78rem;
+  color:#7b8a8e;
+  display:flex;
+  justify-content:space-between;
+  border-top:1px dashed var(--line);
+  padding-top:8px;
+}
+
+/* 话题列表 */
+.topic-layout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:26px;
+}
+.topic-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.topic-list li{
+  padding:14px 0;
+  border-bottom:1px solid var(--mist-deep);
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+.topic-list li:last-child{border-bottom:none;}
+.topic-index{
+  flex:0 0 auto;
+  width:26px;height:26px;
+  border-radius:6px;
+  background:var(--mist);
+  color:var(--jade-deep);
+  font-size:.82rem;
+  font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.topic-body h3{
+  font-size:1rem;
+  margin-bottom:.25em;
+}
+.topic-body p{
+  font-size:.86rem;
+  color:var(--ink-soft);
+  margin-bottom:.35em;
+}
+.topic-tags{
+  font-size:.76rem;
+  color:#7b8a8e;
+}
+.topic-tags span{
+  display:inline-block;
+  margin-right:10px;
+}
+.topic-tags .tag{
+  color:var(--jade);
+}
+
+/* 侧栏 */
+.side-box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow);
+}
+.side-box h3{
+  font-size:1rem;
+  color:var(--jade-deep);
+  border-bottom:1px solid var(--mist-deep);
+  padding-bottom:8px;
+  margin-bottom:12px;
+}
+.side-box ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  font-size:.88rem;
+}
+.side-box ul li{
+  padding:7px 0;
+  border-bottom:1px dashed var(--mist-deep);
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.side-box ul li:last-child{border-bottom:none;}
+.side-box .muted{color:#7b8a8e;font-size:.78rem;}
+
+/* 指南 */
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+.guide-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-left:4px solid var(--jade);
+  border-radius:var(--radius);
+  padding:18px;
+}
+.guide-card h3{
+  color:var(--jade-deep);
+  margin-bottom:.4em;
+}
+.guide-card p{font-size:.9rem;color:var(--ink-soft);margin-bottom:0;}
+
+/* FAQ */
+.faq-list{
+  border-top:1px solid var(--mist-deep);
+}
+.faq-item{
+  border-bottom:1px solid var(--mist-deep);
+  padding:16px 0;
+}
+.faq-item h3{
+  font-size:1rem;
+  margin-bottom:.4em;
+  color:var(--ink);
+  position:relative;
+  padding-left:22px;
+}
+.faq-item h3::before{
+  content:"问";
+  position:absolute;
+  left:0;top:.1em;
+  font-size:.78rem;
+  color:#fff;
+  background:var(--water);
+  width:17px;height:17px;
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;
+}
+.faq-item p{
+  font-size:.9rem;
+  color:var(--ink-soft);
+  margin:0;
+  padding-left:22px;
+}
+
+/* 页脚 */
+.site-footer{
+  margin-top:20px;
+  background:#22463f;
+  color:#c7dcd7;
+  padding:34px 20px 22px;
+}
+.footer-inner{
+  max-width:1140px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:26px;
+}
+.footer-inner h4{
+  color:#fff;
+  font-size:.95rem;
+  margin:0 0 .7em;
+  letter-spacing:1px;
+}
+.footer-inner p,
+.footer-inner li{
+  font-size:.84rem;
+  color:#a9c5bf;
+}
+.footer-inner ul{
+  list-style:none;
+  padding:0;margin:0;
+}
+.footer-inner ul li{margin-bottom:.45em;}
+.footer-inner a{color:#c7dcd7;}
+.footer-inner a:hover{color:#fff;}
+.footer-bottom{
+  max-width:1140px;
+  margin:22px auto 0;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.14);
+  font-size:.78rem;
+  color:#8fb0a9;
+  text-align:center;
+}
+
+/* 响应式 */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .topic-layout{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:620px){
+  body{font-size:15px;}
+  h1{font-size:1.5rem;}
+  .hero-main h1{font-size:1.55rem;}
+  .header-inner{padding:14px 16px 20px;}
+  .topbar-links{gap:12px;font-size:.82rem;}
+  .main-nav a{font-size:.82rem;padding:5px 11px;}
+  .footer-inner{grid-template-columns:1fr;}
+  main{padding:26px 16px 6px;}
+  .section{margin-bottom:34px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark">烟雨</div>
+        <div>
+          <div class="brand-name">烟雨江南论坛</div>
+          <div class="brand-sub">江南文化 · 生活见闻 · 同城交流</div>
+        </div>
+      </div>
+      <nav class="topbar-links" aria-label="快捷入口">
+        <a href="#boards">版块导航</a>
+        <a href="#topics">热门话题</a>
+        <a href="#guide">新人指南</a>
+        <a href="#faq">常见问题</a>
+      </nav>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#boards">文化茶馆</a>
+      <a href="#boards">旅行见闻</a>
+      <a href="#boards">同城生活</a>
+      <a href="#boards">书影音</a>
+      <a href="#boards">手艺与器物</a>
+      <a href="#boards">美食风物</a>
+      <a href="#topics">站务与建议</a>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <div class="hero-main">
+      <h1>烟雨江南论坛：在细雨与青石之间，聊一聊江南的日常</h1>
+      <p class="hero-lead">这里是一个以江南地区文化、生活与旅行为主要话题的兴趣社区。无论你是本地居民、在外游子，还是对江南风物抱有好奇的旅行者，都可以围绕园林、水乡、方言、饮食、手艺、读书与城市生活展开讨论。论坛以版块分区的方式组织内容，方便按兴趣找到同好。</p>
+      <div class="hero-tags">
+        <span>园林与水乡</span>
+        <span>方言与民俗</span>
+        <span>城市生活</span>
+        <span>旅行见闻</span>
+        <span>书影音分享</span>
+      </div>
+    </div>
+    <aside class="hero-side">
+      <h3>新朋友可以先做这几件事</h3>
+      <ol>
+        <li>浏览版块说明，了解各分区讨论范围</li>
+        <li>阅读站务公告，熟悉基本发帖规范</li>
+        <li>从感兴趣的话题下方回复，逐步参与</li>
+        <li>需要帮助时，到站务区发帖提问</li>
+      </ol>
+    </aside>
+  </div>
+</header>
+
+<main>
+
+  <!-- 版块导航 -->
+  <section class="section" id="boards">
+    <div class="section-head">
+      <h2>版块导航</h2>
+      <span class="head-note">按兴趣分区，找到属于你的讨论角落</span>
+    </div>
+    <div class="board-grid">
+      <article class="board-card">
+        <h3>文化茶馆</h3>
+        <p>聊江南的历史脉络、文人掌故、园林建筑与地方志，适合愿意慢下来、认真讨论文化话题的用户。</p>
+        <div class="board-meta"><span>人文 · 历史</span><span>综合讨论</span></div>
+      </article>
+      <article class="board-card">
+        <h3>旅行见闻</h3>
+        <p>分享古镇、水乡、山野与城市的行走记录，包括路线安排、季节选择、交通与住宿的经验交流。</p>
+        <div class="board-meta"><span>出行 · 攻略</span><span>经验分享</span></div>
+      </article>
+      <article class="board-card">
+        <h3>同城生活</h3>
+        <p>面向本地居民的日常话题，涵盖城市公共空间、社区活动、生活服务与邻里见闻。</p>
+        <div class="board-meta"><span>本地 · 日常</span><span>互助交流</span></div>
+      </article>
+      <article class="board-card">
+        <h3>书影音</h3>
+        <p>围绕书籍、电影、纪录片与音乐展开讨论，欢迎分享与江南题材相关的作品与观后感。</p>
+        <div class="board-meta"><span>阅读 · 观影</span><span>作品讨论</span></div>
+      </article>
+      <article class="board-card">
+        <h3>手艺与器物</h3>
+        <p>关注传统手工艺、文房器物、茶器与民间技艺，交流制作过程、鉴赏心得与入门路径。</p>
+        <div class="board-meta"><span>手作 · 器物</span><span>兴趣交流</span></div>
+      </article>
+      <article class="board-card">
+        <h3>美食风物</h3>
+        <p>记录时令食材、地方小吃与家常做法，讨论口味差异与饮食背后的地域文化。</p>
+        <div class="board-meta"><span>饮食 · 风物</span><span>图文分享</span></div>
+      </article>
+      <article class="board-card">
+        <h3>站务与建议</h3>
+        <p>发布论坛公告、版块调整说明，也接收用户对功能、规则与使用体验的建议与反馈。</p>
+        <div class="board-meta"><span>公告 · 反馈</span><span>站务处理</span></div>
+      </article>
+      <article class="board-card">
+        <h3>新人报到</h3>
+        <p>新注册用户可以在此简单介绍自己的兴趣方向，方便其他用户认识你并推荐合适的版块。</p>
+        <div class="board-meta"><span>欢迎 · 介绍</span><span>融入社区</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 热门话题 -->
+  <section class="section" id="topics">
+    <div class="section-head">
+      <h2>近期讨论话题</h2>
+      <span class="head-note">以下为话题类型示例，具体内容以站内实际帖子为准</span>
+    </div>
+    <div class="topic-layout">
+      <div>
+        <ul class="topic-list">
+          <li>
+            <span class="topic-index">1</span>
+            <div class="topic-body">
+              <h3>梅雨季节的江南，适合去哪些地方走走？</h3>
+              <p>讨论雨季出行的注意事项、雨具选择，以及雨天反而更有味道的园林与街巷。</p>
+              <div class="topic-tags"><span class="tag">旅行见闻</span><span>季节 · 出行</span></div>
+            </div>
+          </li>
+          <li>
+            <span class="topic-index">2</span>
+            <div class="topic-body">
+              <h3>你所在的城市，还保留着哪些老手艺？</h3>
+              <p>从竹编、蓝印花布到传统糕点，交流身边仍在延续的手工技艺与传承现状。</p>
+              <div class="topic-tags"><span class="tag">手艺与器物</span><span>民俗 · 手作</span></div>
+            </div>
+          </li>
+          <li>
+            <span class="topic-index">3</span>
+            <div class="topic-body">
+              <h3>江南方言里的那些有趣说法</h3>
+              <p>分享各地方言中的日常用语、俗语与读音差异，欢迎附上简单解释方便外地朋友理解。</p>
+              <div class="topic-tags"><span class="tag">文化茶馆</span><span>方言 · 民俗</span></div>
+            </div>
+          </li>
+          <li>
+            <span class="topic-index">4</span>
+            <div class="topic-body">
+              <h3>适合秋天阅读的江南题材书单</h3>
+              <p>散文、地方志、小说与随笔皆可，欢迎附上简短的阅读感受与推荐理由。</p>
+              <div class="topic-tags"><span class="tag">书影音</span><span>阅读 · 书单</span></div>
+            </div>
+          </li>
+          <li>
+            <span class="topic-index">5</span>
+            <div class="topic-body">
+              <h3>城市里的公共空间，哪些地方让你愿意常去？</h3>
+              <p>公园、图书馆、河岸步道或社区角落，聊聊这些空间给日常生活带来的变化。</p>
+              <div class="topic-tags"><span class="tag">同城生活</span><span>城市 · 日常</span></div>
+            </div>
+          </li>
+          <li>
+            <span class="topic-index">6</span>
+            <div class="topic-body">
+              <h3>时令食材怎么吃：从春笋到秋蟹</h3>
+              <p>交流不同季节的食材挑选、家常做法与口味搭配，鼓励附上图文步骤。</p>
+              <div class="topic-tags"><span class="tag">美食风物</span><span>时令 · 饮食</span></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <aside>
+        <div class="side-box">
+          <h3>版块活跃方向</h3>
+          <ul>
+            <li><span>旅行见闻</span><span class="muted">出行讨论</span></li>
+            <li><span>文化茶馆</span><span class="muted">人文话题</span></li>
+            <li><span>美食风物</span><span class="muted">图文分享</span></li>
+            <li><span>同城生活</span><span class="muted">本地互助</span></li>
+            <li><span>手艺与器物</span><span class="muted">兴趣交流</span></li>
+          </ul>
+        </div>
+        <div class="side-box">
+          <h3>发帖小提示</h3>
+          <ul>
+            <li><span>标题写清主题</span></li>
+            <li><span>内容注明来源</span></li>
+            <li><span>图片避免侵权</span></li>
+            <li><span>尊重不同观点</span></li>
+          </ul>
+          <p class="muted" style="margin:10px 0 0;">规范发帖有助于获得更有效的回复与讨论。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 参与指南 -->
+  <section class="section" id="guide">
+    <div class="section-head">
+      <h2>参与指南</h2>
+      <span class="head-note">从浏览到发帖，几步融入社区</span>
+    </div>
+    <div class="guide-grid">
+      <article class="guide-card">
+        <h3>先看后说</h3>
+        <p>进入一个新版块时，先浏览置顶帖与近期讨论，了解该分区的讨论范围与表达习惯，再决定是否参与。</p>
+      </article>
+      <article class="guide-card">
+        <h3>标题具体</h3>
+        <p>把问题或主题写进标题，例如注明地点、时间或具体对象，能显著提高被有效回复的概率。</p>
+      </article>
+      <article class="guide-card">
+        <h3>内容完整</h3>
+        <p>提问时补充必要的背景信息，分享时说明大致情况，避免只有一句结论而缺少可讨论的细节。</p>
+      </article>
+      <article class="guide-card">
+        <h3>尊重差异</h3>
+        <p>江南各地风物与生活方式差异明显，讨论中保持对地域、方言与个人选择的尊重。</p>
+      </article>
+      <article class="guide-card">
+        <h3>注意隐私</h3>
+        <p>发布照片与位置信息前，留意是否涉及他人隐私或敏感场所，必要时做适当处理。</p>
+      </article>
+      <article class="guide-card">
+        <h3>善用反馈</h3>
+        <p>遇到功能问题或规则疑问，可在站务与建议版块提出，便于集中处理与改进。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section class="section" id="faq">
+    <div class="section-head">
+      <h2>常见问题</h2>
+      <span class="head-note">关于浏览、注册与发帖的常见疑问</span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>不注册可以浏览论坛内容吗？</h3>
+        <p>通常可以浏览公开版块的帖子内容。注册后一般可以使用回复、发帖、收藏等功能，具体权限以站点实际设置为准。</p>
+      </div>
+      <div class="faq-item">
+        <h3>发帖时应该选择哪个版块？</h3>
+        <p>按照内容主题选择最接近的版块。旅行记录选旅行见闻，文化讨论选文化茶馆，本地日常选同城生活；不确定时可以先在站务区询问。</p>
+      </div>
+      <div class="faq-item">
+        <h3>帖子被移动或删除是什么原因？</h3>
+        <p>常见原因包括版块不符、内容重复、含有不当信息或涉及侵权。若对处理结果有疑问，可通过站务版块沟通了解。</p>
+      </div>
+      <div class="faq-item">
+        <h3>可以发布活动召集或二手信息吗？</h3>
+        <p>不同版块对这类内容的接受程度不同。发布前建议先阅读对应版块的说明，避免影响其他用户的浏览体验。</p>
+      </div>
+      <div class="faq-item">
+        <h3>如何让讨论更有质量？</h3>
+        <p>提供具体背景、说明信息来源、对他人的回复作出回应，都能让讨论更充分。避免只留结论式短句，也避免重复刷屏。</p>
+      </div>
+      <div class="faq-item">
+        <h3>遇到不友善的回复怎么办？</h3>
+        <p>建议先不直接争执，可通过举报或站务反馈渠道说明情况，由管理方按规则处理。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h4>烟雨江南论坛</h4>
+      <p>一个围绕江南文化、生活方式与同城话题的兴趣交流社区，鼓励认真、友善、有信息量的讨论。</p>
+    </div>
+    <div>
+      <h4>内容分区</h4>
+      <ul>
+        <li><a href="#boards">文化茶馆</a></li>
+        <li><a href="#boards">旅行见闻</a></li>
+        <li><a href="#boards">同城生活</a></li>
+        <li><a href="#boards">书影音</a></li>
+        <li><a href="#boards">美食风物</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>帮助与规范</h4>
+      <ul>
+        <li><a href="#guide">参与指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a href="#topics">热门话题</a></li>
+        <li><a href="#boards">站务与建议</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 烟雨江南论坛 · 本站为兴趣交流社区，内容由用户分享，请自行判断信息适用性。
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('.main-nav a, .topbar-links a, .footer-inner a[href^="#"]');
+  for (var i = 0; i < links.length; i++){
+    links[i].addEventListener('click', function(e){
+      var id = this.getAttribute('href');
+      if (id && id.length > 1 && id.charAt(0) === '#'){
+        var target = document.querySelector(id);
+        if (target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+  </html>
